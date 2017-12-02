@@ -7,6 +7,9 @@ public class CatBehaviour : MonoBehaviour {
 
     [SerializeField]
     private float m_speed;
+    [SerializeField]
+    private GameObject m_shit;
+
 
     private Transform m_Transform;
 
@@ -21,7 +24,7 @@ public class CatBehaviour : MonoBehaviour {
     private bool m_IsMove = true;
     private bool m_IsShit = false;
 
-    private void Start()
+    private IEnumerator Start()
     {
         m_Transform = GetComponent<Transform>();
         m_Animator = GetComponent<Animator>();
@@ -29,6 +32,11 @@ public class CatBehaviour : MonoBehaviour {
         m_WayPointManager = GameObject.FindGameObjectWithTag("WayPoints").GetComponent<WaypointManager>();
 
         m_WayPoint = m_WayPointManager.GetCloserWayPoint(m_Transform.position);
+
+        yield return new WaitForSeconds(Random.Range(5, 10));
+
+        StartCoroutine(SetShit());
+        m_IsShit = false;
     }
 
     public void Update()
@@ -55,6 +63,11 @@ public class CatBehaviour : MonoBehaviour {
 
         }
 
+        if(m_IsShit == true)
+        {
+            StartCoroutine(SetShit());
+            m_IsShit = false;
+        }
     }
 
     private void States()
@@ -78,10 +91,11 @@ public class CatBehaviour : MonoBehaviour {
 
     private IEnumerator SetShit()
     {
-
+        var _Object = Instantiate(m_shit);
+        _Object.transform.position = m_Transform.position;
         /// Implementar a cagação
-
-        yield return new WaitForSeconds(0f);
+        yield return new WaitForSeconds(Random.Range(5, 10));
+        m_IsShit = true;
     }
 
     private void Meow(){ }
