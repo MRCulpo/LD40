@@ -150,7 +150,7 @@ public class CatBehaviour : MonoBehaviour {
         _Object.transform.position = m_Transform.position;
         m_Inventory.SetShit();
         /// Implementar a cagação
-        yield return new WaitForSeconds(Random.Range(5, 10));
+        yield return new WaitForSeconds(Random.Range(8, 15));
         m_IsShit = true;
     }
 
