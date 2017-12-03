@@ -24,10 +24,12 @@ public class PlayerInteractObjects : MonoBehaviour {
     private bool m_CatchCat = false;
 
     private PlayerInventory m_Inventory;
+    private Animator m_Animator;
 
     private void Awake()
     {
         m_Inventory = GetComponent<PlayerInventory>();
+        m_Animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -36,6 +38,7 @@ public class PlayerInteractObjects : MonoBehaviour {
         {
             if(m_RefShit != null)
             {
+                m_Animator.SetTrigger("Down");
                 m_Inventory.RemoveShit();
                 DropBiscuit();
                 Destroy(m_RefShit);
@@ -46,6 +49,7 @@ public class PlayerInteractObjects : MonoBehaviour {
                 var _cat = m_RefCat.GetComponent<CatBehaviour>();
                 if (_cat.m_CatEnum != StatsEnum.Sleep)
                 {
+                    m_Animator.SetTrigger("Down");
                     StartCoroutine( _cat.Sleep(Random.Range(GameAutoConfig.instance.m_RangeTimeSleep.x,
                                                             GameAutoConfig.instance.m_RangeTimeSleep.y)) );
                     m_Inventory.RemoveBiscuit();
