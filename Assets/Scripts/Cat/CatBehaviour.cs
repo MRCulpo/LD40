@@ -100,8 +100,8 @@ public class CatBehaviour : MonoBehaviour {
                 m_Animator.SetBool("idle", true);
             }
 
-            m_CoroutineIdle = StartCoroutine(Idle(Random.Range(1, 3)));
-            ///Implementa Animações, e tempo para o proximo Estado
+            m_CoroutineIdle = StartCoroutine(Idle(Random.Range(GameAutoConfig.instance.m_RangeTimeIdle.x,
+                                                               GameAutoConfig.instance.m_RangeTimeIdle.y)));
         }
     }
 
@@ -150,7 +150,7 @@ public class CatBehaviour : MonoBehaviour {
         _Object.transform.position = m_Transform.position;
         m_Inventory.SetShit();
         /// Implementar a cagação
-        yield return new WaitForSeconds(Random.Range(8, 15));
+        yield return new WaitForSeconds(Random.Range(GameAutoConfig.instance.m_RangeTimeShit.x, GameAutoConfig.instance.m_RangeTimeShit.y));
         m_IsShit = true;
     }
 
