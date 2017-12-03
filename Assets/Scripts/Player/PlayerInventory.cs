@@ -11,7 +11,7 @@ public class PlayerInventory : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("ApplyToxin", 0f, 4f);
+        InvokeRepeating("ApplyToxin", 0f, GameAutoConfig.instance.m_TimeApplyToxin);
         InventoryCanvas.instance.UpdateAll();
     }
 

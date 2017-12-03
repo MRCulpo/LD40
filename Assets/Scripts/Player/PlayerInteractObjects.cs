@@ -46,7 +46,8 @@ public class PlayerInteractObjects : MonoBehaviour {
                 var _cat = m_RefCat.GetComponent<CatBehaviour>();
                 if (_cat.m_CatEnum != StatsEnum.Sleep)
                 {
-                    StartCoroutine( _cat.Sleep(Random.Range( 6, 10 )) );
+                    StartCoroutine( _cat.Sleep(Random.Range(GameAutoConfig.instance.m_RangeTimeSleep.x,
+                                                            GameAutoConfig.instance.m_RangeTimeSleep.y)) );
                     m_Inventory.RemoveBiscuit();
                     RemovePickCat();
                 }
@@ -129,7 +130,7 @@ public class PlayerInteractObjects : MonoBehaviour {
     private void DropBiscuit()
     {
         int _randon = Random.Range(0, 100);
-        if (_randon <= 30)
+        if (_randon <= GameAutoConfig.instance.m_PercentageDropBiscuit)
         {
             GameObject _biscuit = Instantiate(m_biscuit);
             _biscuit.transform.position = transform.position;
