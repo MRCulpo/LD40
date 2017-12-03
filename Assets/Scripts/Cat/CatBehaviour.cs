@@ -24,11 +24,13 @@ public class CatBehaviour : MonoBehaviour {
     private bool m_IsMove = true;
     private bool m_IsShit = false;
 
+    private PlayerInventory m_Inventory;
+
     private IEnumerator Start()
     {
         m_Transform = GetComponent<Transform>();
         m_Animator = GetComponent<Animator>();
-
+        m_Inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>();
         m_WayPointManager = GameObject.FindGameObjectWithTag("WayPoints").GetComponent<WaypointManager>();
 
         m_WayPoint = m_WayPointManager.GetCloserWayPoint(m_Transform.position);
@@ -93,6 +95,7 @@ public class CatBehaviour : MonoBehaviour {
     {
         var _Object = Instantiate(m_shit);
         _Object.transform.position = m_Transform.position;
+        m_Inventory.SetShit();
         /// Implementar a cagação
         yield return new WaitForSeconds(Random.Range(5, 10));
         m_IsShit = true;
