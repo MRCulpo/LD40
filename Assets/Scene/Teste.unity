@@ -9183,7 +9183,7 @@ MonoBehaviour:
   m_RangeTimeIdle: {x: 2, y: 5}
   m_PercentageDropBiscuit: 25
   m_TimeApplyToxin: 4
-  m_DividerDificultToxin: 2
+  m_DividerDificultToxin: 3
 --- !u!1 &1614282659
 GameObject:
   m_ObjectHideFlags: 0
@@ -9635,7 +9635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   t_min: {fileID: 380294757}
   t_sec: {fileID: 1642730309}
-  totalSeconds: 20
+  totalSeconds: 120
   m_CurrentSec: 0
   m_CurrentMin: 0
 --- !u!1001 &2138688705

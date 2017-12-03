@@ -45,18 +45,8 @@ public class ClockManager : MonoBehaviour
         if (!isCount)
             return;
 
-        if (m_CurrentMin == 0 && m_CurrentSec == 0)
-        {
-            m_CurrentSec = 0;
-            m_CurrentMin = 0;
-            //Chamar vitoria
 
-            DrawMin();
-            DrawSec();
-            isCount = false;
-        }
-
-        else if (m_CurrentMin >= 0 && m_CurrentSec >= 0)
+        if (m_CurrentMin >= 0 && m_CurrentSec >= 0)
         {
             m_CurrentSec -= Time.deltaTime * 1;
             if (m_CurrentSec <= 0)
@@ -67,22 +57,39 @@ public class ClockManager : MonoBehaviour
             }
             DrawSec();
         }
+
+        if (m_CurrentMin == 0 && m_CurrentSec == 0)
+        {
+            m_CurrentSec = 0;
+            m_CurrentMin = 0;
+            //Chamar vitoria
+
+            DrawMin();
+            DrawSec();
+            isCount = false;
+        }
     }
 
     void DrawSec()
     {
-        if (m_CurrentSec < 10)
-            t_sec.text = "0" + ((int)m_CurrentSec).ToString();
-        else
-            t_sec.text = ((int)m_CurrentSec).ToString();
+        if (m_CurrentSec >= 0)
+        {
+            if (m_CurrentSec < 10)
+                t_sec.text = "0" + ((int)m_CurrentSec).ToString();
+            else
+                t_sec.text = ((int)m_CurrentSec).ToString();
+        }
     }
 
     void DrawMin()
     {
-        if (m_CurrentMin < 10)
-            t_min.text = "0" + m_CurrentMin.ToString();
-        else
-            t_min.text = m_CurrentMin.ToString();
+        if (m_CurrentMin >= 0)
+        {
+            if (m_CurrentMin < 10)
+                t_min.text = "0" + m_CurrentMin.ToString();
+            else
+                t_min.text = m_CurrentMin.ToString();
+        }
     }
 }
 
