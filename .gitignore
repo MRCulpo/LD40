@@ -17,3 +17,5 @@ ExportedObj/
 *.booproj
 *.svd
 *.pdb
+.vs/LD40/v15/.suo
+*.ide
