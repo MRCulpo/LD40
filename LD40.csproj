@@ -282,12 +282,15 @@
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineShot.cs" />
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineTrack.cs" />
     <Compile Include="Assets\Scripts\Cat\CatBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Enum.cs" />
     <Compile Include="Assets\Scripts\InventoryCanvas.cs" />
     <Compile Include="Assets\Scripts\Menu\CreditsMenu.cs" />
+    <Compile Include="Assets\Scripts\Menu\GameOverMenu.cs" />
     <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Player\CharacterController2D.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInteractObjects.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInventory.cs" />
+    <Compile Include="Assets\Scripts\SingletonUnity-master\Extension\Singleton.cs" />
     <Compile Include="Assets\Scripts\Waypoint\WaypointBehaviour.cs" />
     <Compile Include="Assets\Scripts\Waypoint\WaypointManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples\Scripts\Benchmark01.cs" />

@@ -26,6 +26,10 @@ public class CatBehaviour : MonoBehaviour {
 
     private PlayerInventory m_Inventory;
 
+    public StatsEnum m_CatEnum;
+
+    Coroutine m_CoroutineIdle;
+
     private IEnumerator Start()
     {
         m_Transform = GetComponent<Transform>();
@@ -65,7 +69,7 @@ public class CatBehaviour : MonoBehaviour {
 
         }
 
-        if(m_IsShit == true)
+        if(m_IsShit == true && m_CatEnum != StatsEnum.Sleep)
         {
             StartCoroutine(SetShit());
             m_IsShit = false;
@@ -79,16 +83,34 @@ public class CatBehaviour : MonoBehaviour {
             m_IsMove = false;
             m_WayPoint = m_WayPointManager.GetNextWayPoint(m_WayPoint);
             m_Animator.SetTrigger("idle");
-            StartCoroutine(Idle(Random.Range(1, 3)));
+            m_CoroutineIdle = StartCoroutine(Idle(Random.Range(1, 3)));
             ///Implementa Animações, e tempo para o proximo Estado
         }
     }
 
-    private IEnumerator Idle(float _time)
+    public IEnumerator Sleep(float _time)
     {
+
+        m_IsMove = false;
+        StopCoroutine(m_CoroutineIdle);
+        m_CatEnum = StatsEnum.Sleep;
+
         yield return new WaitForSeconds(_time);
 
         m_IsMove = true;
+        m_CatEnum = StatsEnum.Move;
+    }
+
+    public IEnumerator Idle(float _time)
+    {
+        StopCoroutine(Sleep(0));
+        m_CatEnum = StatsEnum.Idle;
+        m_IsMove = false;
+
+        yield return new WaitForSeconds(_time);
+
+        m_IsMove = true;
+        m_CatEnum = StatsEnum.Move;
     }
 
     private IEnumerator SetShit()
