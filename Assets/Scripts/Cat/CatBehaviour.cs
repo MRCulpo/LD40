@@ -55,9 +55,19 @@ public class CatBehaviour : MonoBehaviour {
             m_Transform.position = Vector2.MoveTowards( m_Transform.position, 
                                                         m_WayPoint.MyTransform.position, 
                                                         _speed);
-
-            if (m_LastPosition.y < m_Transform.position.y) m_Animator.SetTrigger("up");
-            else if(m_LastPosition.y > m_Transform.position.y) m_Animator.SetTrigger("down");
+            ///Aplicação das Rotas das Animações
+            {
+                if (m_LastPosition.y < m_Transform.position.y)
+                {
+                    m_Animator.SetBool("up", true);
+                    m_Animator.SetBool("down", false);
+                }
+                else if (m_LastPosition.y > m_Transform.position.y)
+                {
+                    m_Animator.SetBool("down", true);
+                    m_Animator.SetBool("up", false);
+                }
+            }
 
             if (Vector2.Distance(m_Transform.position, m_WayPoint.MyTransform.position) <= 0.2f)
             {
@@ -82,7 +92,14 @@ public class CatBehaviour : MonoBehaviour {
         {
             m_IsMove = false;
             m_WayPoint = m_WayPointManager.GetNextWayPoint(m_WayPoint);
-            m_Animator.SetTrigger("idle");
+
+            ///Aplicação das Rotas das Animações
+            {
+                m_Animator.SetBool("down", false);
+                m_Animator.SetBool("up", false);
+                m_Animator.SetBool("idle", true);
+            }
+
             m_CoroutineIdle = StartCoroutine(Idle(Random.Range(1, 3)));
             ///Implementa Animações, e tempo para o proximo Estado
         }
@@ -92,6 +109,15 @@ public class CatBehaviour : MonoBehaviour {
     {
 
         m_IsMove = false;
+
+        ///Aplicação das Rotas das Animações
+        {
+            m_Animator.SetTrigger("sleep");
+            m_Animator.SetBool("down", false);
+            m_Animator.SetBool("up", false);
+            m_Animator.SetBool("idle", false);
+        }
+
         StopCoroutine(m_CoroutineIdle);
         m_CatEnum = StatsEnum.Sleep;
 
@@ -108,6 +134,11 @@ public class CatBehaviour : MonoBehaviour {
         m_IsMove = false;
 
         yield return new WaitForSeconds(_time);
+
+        ///Aplicação das Rotas das Animações
+        {
+            m_Animator.SetBool("idle", false);
+        }
 
         m_IsMove = true;
         m_CatEnum = StatsEnum.Move;
