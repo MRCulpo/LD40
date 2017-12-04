@@ -9,5 +9,8 @@ EditorBuildSettings:
     path: Assets/Scene/Menu.unity
     guid: f17c067a63dd6df4b98c820795a04487
   - enabled: 1
-    path: Assets/Scene/Teste.unity
-    guid: 0704107bd18b86e40b27a83d338e0353
+    path: Assets/Scene/House.unity
+    guid: e8af8a2a825794c4e8963e14624be422
+  - enabled: 1
+    path: Assets/Scene/ForestScene.unity
+    guid: daa15b5c1b351fc4b93204b6ffc82ae7
