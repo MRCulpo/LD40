@@ -5461,7 +5461,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.41911763, g: 0.31660897, b: 0.17565958, a: 0}
+  m_BackGroundColor: {r: 0.15570933, g: 0.29411763, b: 0.16811836, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -5470,9 +5470,9 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 33
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 11.92
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5494,7 +5494,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 167699115}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -8.360001, y: -1.2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -75538,8 +75538,8 @@ MonoBehaviour:
   m_ScreenX: 0.5
   m_ScreenY: 0.5
   m_CameraDistance: 10
-  m_DeadZoneWidth: 0.124
-  m_DeadZoneHeight: 0.224
+  m_DeadZoneWidth: 0.07
+  m_DeadZoneHeight: 0.13
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.8
@@ -80478,7 +80478,7 @@ MonoBehaviour:
   m_Follow: {fileID: 842480784}
   m_Lens:
     FieldOfView: 33
-    OrthographicSize: 9.17
+    OrthographicSize: 11.92
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -80490,7 +80490,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1367333664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.359999, y: -1.2, z: -10}
+  m_LocalPosition: {x: -8.360001, y: -1.2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1232289015}
@@ -137310,8 +137310,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2109908425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 370.5, y: 208.5, z: 0}
-  m_LocalScale: {x: 0.57890624, y: 0.57890624, z: 0.57890624}
+  m_LocalPosition: {x: 407, y: 229, z: 0}
+  m_LocalScale: {x: 0.6359375, y: 0.6359375, z: 0.6359375}
   m_Children:
   - {fileID: 891909667}
   - {fileID: 1890684818}
