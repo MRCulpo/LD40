@@ -70,6 +70,13 @@ public class InventoryCanvas : Singleton<InventoryCanvas>
             yield return null;
         }
 
-       
+
+        if (_CurrentToxin >= 100)
+        {
+            _CurrentToxin = 100;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+            m_TextToxic.text = Mathf.Abs(_CurrentToxin).ToString() + "%";
+        }
+
     }
 }

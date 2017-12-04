@@ -5,7 +5,7 @@ public class EndGameMenu : MonoBehaviour
 {
     public void PlayAgain()
     {
-        //SceneManager.LoadScene();
+        SceneManager.LoadScene(SceneConfig.MyScene);
     }
 
     public void Back()

@@ -21,4 +21,6 @@ public class GameAutoConfig : Singleton<GameAutoConfig>
 
     [Header("Divisor de dificuldade - Quando maior mais facil")]
     public int m_DividerDificultToxin = 1;
+
+
 }

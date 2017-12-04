@@ -5,7 +5,6 @@ using UnityEngine;
 public class CharacterController2D : MonoBehaviour
 {
 
-
     public float speed;             //Floating point variable to store the player's movement speed.
 
     //[SerializeField, Range(1, 10)]

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ClockManager : MonoBehaviour
@@ -49,8 +50,8 @@ public class ClockManager : MonoBehaviour
         if (m_CurrentMin >= 0 && m_CurrentSec >= 0)
         {
             m_CurrentSec -= Time.deltaTime * 1;
-            if (m_CurrentSec <= 0)
-            {
+            if (m_CurrentSec <= 0 && m_CurrentMin != 0)
+            { 
                 m_CurrentMin--;
                 m_CurrentSec = 60;
                 DrawMin();
@@ -58,7 +59,7 @@ public class ClockManager : MonoBehaviour
             DrawSec();
         }
 
-        if (m_CurrentMin == 0 && m_CurrentSec == 0)
+        if (m_CurrentMin <= 0 && m_CurrentSec <= 0)
         {
             m_CurrentSec = 0;
             m_CurrentMin = 0;
@@ -67,6 +68,7 @@ public class ClockManager : MonoBehaviour
             DrawMin();
             DrawSec();
             isCount = false;
+            SceneManager.LoadScene("Success");
         }
     }
 
