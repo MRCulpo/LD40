@@ -3,14 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void Play()
+    public void ChooseMap(int index)
     {
-        SceneManager.LoadScene(1);
-    }
-
-    public void Credits()
-    {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(index);
     }
 
     public void Quit()
