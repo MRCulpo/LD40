@@ -39,6 +39,7 @@ public class PlayerInteractObjects : MonoBehaviour {
             if(m_RefShit != null)
             {
                 m_Animator.SetTrigger("Down");
+                MusicGlobal.instance.FXPlayOneShot(1);
                 m_Inventory.RemoveShit();
                 DropBiscuit();
                 Destroy(m_RefShit);
@@ -49,6 +50,7 @@ public class PlayerInteractObjects : MonoBehaviour {
                 var _cat = m_RefCat.GetComponent<CatBehaviour>();
                 if (_cat.m_CatEnum != StatsEnum.Sleep)
                 {
+                    MusicGlobal.instance.FXPlayOneShot(0);
                     m_Animator.SetTrigger("Down");
                     StartCoroutine( _cat.Sleep(Random.Range(GameAutoConfig.instance.m_RangeTimeSleep.x,
                                                             GameAutoConfig.instance.m_RangeTimeSleep.y)) );
